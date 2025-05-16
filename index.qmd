@@ -1,11 +1,22 @@
 ---
-title: "test"
+title: "This is the Rutgers R alliance website"
 ---
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 
 ```{r}
-1 + 1
+#| label: main-plot
+#| echo: false
+#| out-width: 100%
+#| fig-asp: 0.56
+
+library("ggplot2")
+ggplot(mtcars) + 
+  aes(x = disp, y = mpg) + 
+  geom_smooth(
+    color = "white", fill = "thistle", 
+    method = "loess", formula = "y ~ x"
+  ) + 
+  geom_point(pch = 21, fill = "black", color = "white") + 
+  theme_void()
 ```
+
